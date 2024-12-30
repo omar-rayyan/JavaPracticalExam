@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "users_taable")
@@ -31,6 +32,9 @@ public class User {
     @Transient
     @NotEmpty(message="Password confirmation is required..")
     private String confirm;
+    
+    @OneToMany(mappedBy="creator", fetch=FetchType.LAZY)
+	private List<Team> teams;
 
     @Column(updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")

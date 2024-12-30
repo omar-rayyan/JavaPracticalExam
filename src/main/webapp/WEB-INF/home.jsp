@@ -9,25 +9,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Login & Registration</title>
+    <title>Kickball Leage Dashboard</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 </head>
 
-<body class="bg-gradient bg-primary text-light min-vh-100 d-flex align-items-center justify-content-center">
-    <div class="container text-center">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <!-- Main Content -->
-                <div class="p-5 rounded shadow-lg bg-light text-dark">
-                    <h1 class="fw-bold mb-3">Welcome, ${loggedUser.userName}</h1>
-                    <p class="fs-5">This is your home page. Nothing to see here yet.</p>
-                    <a href="/logout" class="btn btn-danger mt-4 px-5">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<body>
+    <div class="container mt-5">
+        <h1>Welcome, ${loggedUser.userName}!</h1>
+        <a href="/logout" class="btn btn-primary">Log out</a>
 
-    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+        <h2 class="mt-4">Teams</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Team Name</th>
+                    <th>Skill Level (1-5)</th>
+                    <th>Players</th>
+                    <th>Game Day</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="team" items="${teams}">
+                    <tr>
+                        <td>
+                            <a href="/teams/${team.id}" class="text-decoration-none text-primary">
+                                ${team.name}
+                            </a>
+                        </td>
+                        <td>${team.skill}</td>
+                        <td>${team.players.size()}/9</td>
+                        <td>${team.gameDay}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+        <c:if test="${empty teams}">
+		        <div class="alert alert-info">
+		            No teams have been created yet.
+		        </div>
+		    </c:if>
+        <a href="/teams/new" class="btn btn-primary">Create New Team</a>
+    </div>
 </body>
 
 </html>

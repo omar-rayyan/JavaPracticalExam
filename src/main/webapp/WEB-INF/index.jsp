@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Us</title>
+    <title>Join Us | Kickball Leage</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -16,8 +16,9 @@
     <div class="container py-5">
         <!-- Header Section -->
         <div class="text-center mb-5">
-            <h1 class="display-4 fw-bold text-primary">Welcome to Our Community!</h1>
-            <p class="lead text-secondary">Join now or log in to start your journey.</p>
+            <h1 class="display-1 fw-bold text-primary">Kickball League</h1>
+            <h2 class="display-11 text-primary text-dark">Welcome to Our Community!</h2>
+            <p class="lead text-secondary">Join now or log in to start your journey with us.</p>
         </div>
 
         <!-- Form Section -->
